@@ -2,9 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                sh '''
+                mkdir -p dist
+                cp -r src/* dist/
+                echo "Build completed: files copied to 'dist' directory" 
+                '''
             }
         }
     }
